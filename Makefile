@@ -9,16 +9,21 @@ run_main: ## Compile & run main.ts
 	node main.js
 
 run_react: ##Run react app (host)
+	cd webterm && \
 	npm install && \
 	npm run dev
 
 run_reactdc: ##Run react app (for running inside dev container)
+	cd webterm && \
 	npm install && \
 	npm run dev -- --host
 
 rm_nm: ##Rm node modules
+	cd webterm && \
 	rm -rf node_modules
 
 rm_dist: ##Clear dist (dev)
-	cd src && \
+	cd webterm && \
 	rm -rf dist
+
+tidy: rm_nm rm_dist ## Rm node modules + dist
