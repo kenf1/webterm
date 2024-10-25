@@ -46,6 +46,7 @@ EOL
 
 #Misc
 Dev/
+package-lock.json
 main.js
 func.js
-package-lock.json
+promptUser.js

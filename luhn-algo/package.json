@@ -1,0 +1,18 @@
+{
+    "name": "luhn-algo",
+    "version": "0.1.0",
+    "description": "Check if input passes Luhn algorithm (used for credit card numbers and IMEI)",
+    "main": "main.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^22.8.0",
+        "@types/prompt-sync": "^4.2.3"
+    },
+    "dependencies": {
+        "prompt-sync": "^4.2.0"
+    }
+}
