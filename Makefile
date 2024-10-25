@@ -4,7 +4,7 @@ help:
 	/^##@/ { printf "\n\033[1m%s\033[0m\n", substr($$0, 5) }' $(MAKEFILE_LIST)
 
 run_main: ## Compile & run main.ts
-	cd src && \
+	cd luhn-algo && \
 	tsc main.ts && \
 	node main.js
 
