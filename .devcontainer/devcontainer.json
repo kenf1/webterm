@@ -1,0 +1,20 @@
+{
+	"name": "Existing Dockerfile",
+	"build": {
+		"context": "..",
+		"dockerfile": "../Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"formulahendry.code-runner",
+				"ms-vscode.live-server",
+				"yoavbls.pretty-ts-errors",
+				"mhutchie.git-graph"
+			],
+			"settings": {
+				"code-runner.enableAppInsights": false
+			}
+		}
+	}
+}
