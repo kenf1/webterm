@@ -14,6 +14,7 @@ export function DefRoute() {
     //enter button
     const handleEnter = () => {
         let acceptedCmd: string[] = [
+            "about", "github",
             "help", "echo", "luhn-check", "hacker",
             "sudo", "sudoo", "sudooo"
         ];
