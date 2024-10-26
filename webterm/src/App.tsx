@@ -10,7 +10,7 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<Term />} />
-                <Route path="/luhn-debug" element={<LuhnDebug />} />
+                <Route path="/ldebug" element={<LuhnDebug />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </Router>
