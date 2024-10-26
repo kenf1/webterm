@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { prepFunc, sumNumArray, inputX2 } from "../../../luhn-algo/func.ts"
 
-export function Term() {
+export function LuhnAlgo() {
     let [userInput, setUserInput] = useState("");
     let [singleSum, setSingleSum] = useState<number>(0);
     let [resultMessage, setResultMessage] = useState("");
@@ -39,6 +39,15 @@ export function Term() {
 
     return (
         <>
+            <div className="input-box">
+                <input
+                    type="text"
+                    value={userInput}
+                    onChange={luhnAlgo}
+                    placeholder="$"
+                />
+            </div>
+
             <div>
                 <p className="res-desc">
                     Output:
@@ -51,16 +60,6 @@ export function Term() {
                 <p className="res-actual">
                     <span className={resultMessage === 'PASS' ? 'pass' : 'fail'}>{resultMessage}</span>
                 </p>
-
-            </div>
-
-            <div className="input-box">
-                <input
-                    type="text"
-                    value={userInput}
-                    onChange={luhnAlgo}
-                    placeholder="$"
-                />
             </div>
         </>
     )
