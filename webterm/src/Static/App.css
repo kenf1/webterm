@@ -13,11 +13,6 @@ input {
     font-size: 28px;
 }
 
-.term-user {
-    font-size: 28px;
-    justify-content: left;
-}
-
 .res-desc {
     display: flex;
     justify-content: left;

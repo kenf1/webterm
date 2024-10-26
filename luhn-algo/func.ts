@@ -9,7 +9,7 @@ export function printRes(input: string | number) {
 //divide & conquer approach to rm all spaces + non-numbers
 export function prepFunc(input: string): string {
     //rm spaces + A-z w/ regex
-    const str_res: string = input
+    let str_res: string = input
         .split(" ")
         .map(
             (substr) => parseInt(
@@ -51,10 +51,10 @@ export function sumNumArray(input: number[]): number {
 //2x every other digit + sum digits if result >= 10
 export function inputX2(input: string): number[] {
     //empty array to store values
-    const actualList: number[] = []
+    let actualList: number[] = []
 
     //convert string -> int
-    const intArray: number[] = input.split('').map(Number);
+    let intArray: number[] = input.split('').map(Number);
 
     //push check number (1st digit in orig input, last in rev input)
     actualList.push(intArray[0]);
@@ -62,7 +62,7 @@ export function inputX2(input: string): number[] {
     //all other digits in 
     for (let i: number = 1; i < intArray.length; i++) {
         if (i % 2 == 1) { //items to double
-            const tempInt: number = intArray[i] * 2;
+            let tempInt: number = intArray[i] * 2;
 
             if (tempInt >= 10) { //items to sum digits
                 actualList.push(sumGT10(tempInt));
