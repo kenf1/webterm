@@ -1,4 +1,4 @@
-import { inputX2, prepFunc, sumNumArray } from "../luhn-algo/func";
+import { inputX2, prepFunc, sumNumArray } from "./func";
 
 //confirm index 0 is accepted command
 export function argIndex0(input: string, refArray: string[]): boolean {

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { argIndex0, cmdHandler } from "../../../args/parseArgs"
+import { argIndex0, cmdHandler } from "../../Logic/parseArgs"
 
 export function DefRoute() {
     let [userInput, setUserInput] = useState("");
