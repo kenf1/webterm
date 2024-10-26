@@ -3,13 +3,13 @@ import "./App.css"
 import { prepFunc, sumNumArray, inputX2 } from "../../luhn-algo/func.ts"
 
 function App() {
-  const [userInput, setUserInput] = useState("");
-  const [singleSum, setSingleSum] = useState<number>(0);
-  const [resultMessage, setResultMessage] = useState("");
+  let [userInput, setUserInput] = useState("");
+  let [singleSum, setSingleSum] = useState<number>(0);
+  let [resultMessage, setResultMessage] = useState("");
 
   const luhnAlgo = (event: React.ChangeEvent<HTMLInputElement>) => {
     //get user input & store as var
-    const inputVal: string = event.target.value;
+    let inputVal: string = event.target.value;
     setUserInput(inputVal);
 
     /*
@@ -17,12 +17,12 @@ function App() {
       double every other digit (exclude last digit in rev-mode)
       sum digits of doubled number if >= 10
     */
-    const processedArray: number[] = inputX2(
+    let processedArray: number[] = inputX2(
       prepFunc(inputVal)
     );
 
     //sum all digits
-    const sum: number = sumNumArray(processedArray);
+    let sum: number = sumNumArray(processedArray);
     if (isNaN(sum)) {
       setSingleSum(-1);
     } else {
@@ -30,7 +30,7 @@ function App() {
     }
 
     //outcome
-    const remainder: number = sum % 10;
+    let remainder: number = sum % 10;
     if (remainder === 0) {
       setResultMessage('PASS');
     } else {
@@ -46,7 +46,7 @@ function App() {
         </p>
 
         <p className="res-actual">
-          The input returned a total sum of {singleSum === -1 ? '-' : singleSum}
+          Input returned a total sum: {singleSum === -1 ? '-' : singleSum}
         </p>
 
         <p className="res-actual">
@@ -56,9 +56,6 @@ function App() {
       </div>
 
       <div className="input-box">
-        {/* <p className="term-user">
-          user:
-        </p> */}
         <input
           type="text"
           value={userInput}
