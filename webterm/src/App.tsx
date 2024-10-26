@@ -1,17 +1,36 @@
-import { useState } from 'react'
-import './App.css'
+import React, { useState } from "react"
+import "./App.css"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [userInput, setUserInput] = useState("");
+
+  const handleUserInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    //get user input & store as var
+    const inputVal: string = event.target.value;
+    setUserInput(inputVal);
+  }
 
   return (
     <>
-      <h1>Welcome</h1>
+      <div className="input-box">
+        <input
+          type="text"
+          value={userInput}
+          onChange={handleUserInput}
+          placeholder="Enter value:"
+        />
+      </div>
 
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          Count is: {count}
-        </button>
+      <div>
+        <p className="res-desc">
+          You entered:
+        </p>
+
+        <br />
+
+        <p className="res-actual">
+          {userInput}
+        </p>
       </div>
     </>
   )
