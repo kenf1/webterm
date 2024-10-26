@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { prepFunc, sumNumArray, inputX2 } from "../../../luhn-algo/func.ts"
 
-export function Term() {
+export function LuhnAlgo() {
     let [userInput, setUserInput] = useState("");
     let [singleSum, setSingleSum] = useState<number>(0);
     let [resultMessage, setResultMessage] = useState("");
@@ -31,29 +31,14 @@ export function Term() {
         //outcome
         let remainder: number = sum % 10;
         if (remainder === 0) {
-            setResultMessage('PASS');
+            setResultMessage("PASS");
         } else {
-            setResultMessage('FAIL');
+            setResultMessage("FAIL");
         }
     }
 
     return (
         <>
-            <div>
-                <p className="res-desc">
-                    Output:
-                </p>
-
-                <p className="res-actual">
-                    Input returned a total sum: {singleSum === -1 ? '-' : singleSum}
-                </p>
-
-                <p className="res-actual">
-                    <span className={resultMessage === 'PASS' ? 'pass' : 'fail'}>{resultMessage}</span>
-                </p>
-
-            </div>
-
             <div className="input-box">
                 <input
                     type="text"
@@ -61,6 +46,20 @@ export function Term() {
                     onChange={luhnAlgo}
                     placeholder="$"
                 />
+            </div>
+
+            <div>
+                <p className="res-desc">
+                    Output:
+                </p>
+
+                <p className="res-actual">
+                    Input returned a total sum: {singleSum === -1 ? "-" : singleSum}
+                </p>
+
+                <p className="res-actual">
+                    <span className={resultMessage === "PASS" ? "pass" : "fail"}>{resultMessage}</span>
+                </p>
             </div>
         </>
     )
