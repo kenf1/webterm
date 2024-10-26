@@ -13,15 +13,15 @@ rm_nm: ##Rm all node_modules
 
 define pkg_run
 	cd $(1) && \
-	tsc $(2) && \
-	node $(3)
+	tsc --target es2023 $(2).ts && \
+	node $(2).js
 endef
 
 run_luhn: ##Compile & run luhn-algo
-	$(call pkg_run,luhn-algo,main.ts,main.js)
+	$(call pkg_run,luhn-algo,main)
 
 run_args: ##Run args
-	$(call pkg_run,args,parseArgs.ts,parseArgs.js)
+	$(call pkg_run,args,parseArgs)
 
 define npm_run
 	cd $(1) && \
