@@ -47,7 +47,6 @@ EOL
 #Misc
 Dev/
 package-lock.json
-main.js
-func.js
-promptUser.js
-parseArgs.js
+
+luhn-algo/*.js
+args/*.js

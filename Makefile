@@ -23,6 +23,10 @@ endef
 run_args: ##Run args
 	$(call pkg_run,args,parseArgs)
 
+ctargs: ##Compile args test
+	cd args && \
+	tsc --target es2023 *.ts
+
 define npm_run
 	cd $(1) && \
 	npm install && \

@@ -2,7 +2,8 @@
   "name": "args",
   "version": "0.1.0",
   "description": "Parse entered args",
-  "main": "main.ts",
+  "main": "test.ts",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
