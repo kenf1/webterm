@@ -4,10 +4,10 @@ export function argIndex0(input: string, refArray: string[]): boolean {
 
     if (inputArr.length > 0) {
         if (refArray.includes(inputArr[0])) {
-            console.log("SUCCESS");
+            // console.log("SUCCESS");
             return true;
         } else {
-            console.log(inputArr[0] + " is not an accepted argument");
+            // console.log(inputArr[0] + " is not an accepted argument");
             return false;
         }
     } else {
@@ -17,28 +17,27 @@ export function argIndex0(input: string, refArray: string[]): boolean {
 }
 
 //run options
-export function cmdHandler(inputCmd: string) {
+export function cmdHandler(inputCmd: string, arg: any | null): string {
     switch (inputCmd) {
         case "help":
-            console.log("Available commands:\n");
-            break;
-        case "sudo":
-            console.log("Incorrect command. Did you mean `sudooo`?");
-            break;
+            return `Available commands:
+- echo: Print entered arg
+- luhn-check: Run Luhn checker on input
+- hacker: Attempt to access mainframe
+- sudo: Access as admin`;
+        case "echo":
+            return arg ? arg : "Missing argument for `echo` command";
         case "luhn-check":
-            console.log("Enter string:");
-            break;
+            return "...";
         case "hacker":
-            console.log("I've broken into the mainframe.")
-            break;
+            return "I've broken into the mainframe."
+        case "sudo":
+            return "Incorrect command. Did you mean `sudoo`?";
         case "sudoo":
-            console.log("So close... Missing a `o`");
-            break;
+            return "So close! Missing another `o`?";
         case "sudooo":
-            console.log("...");
-            break;
+            return "...";
         default:
-            console.log("Command not available");
-            break;
+            return "Command not available";
     }
 }

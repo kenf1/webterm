@@ -1,12 +1,33 @@
 import React, { useState } from "react"
+import { argIndex0, cmdHandler } from "../../../args/parseArgs"
 
 export function DefRoute() {
     let [userInput, setUserInput] = useState("");
+    let [displayText, setDisplayText] = useState("");
 
+    //get user input & store as var
     const defFunc = (event: React.ChangeEvent<HTMLInputElement>) => {
-        //get user input & store as var
         let inputVal: string = event.target.value;
         setUserInput(inputVal);
+    }
+
+    //enter button
+    const handleEnter = () => {
+        let acceptedCmd: string[] = [
+            "help", "echo", "luhn-check", "hacker",
+            "sudo", "sudoo", "sudooo"
+        ];
+
+        //check if cmd index 0 is from list of accepted commands
+        if (argIndex0(userInput, acceptedCmd) === true) {
+            //get cmd + args
+            let fullCmd: string[] = userInput.split(" ");
+
+            let cmd_action: string = cmdHandler(fullCmd[0], fullCmd[1]);
+            setDisplayText(cmd_action);
+        } else {
+            setDisplayText("Invalid command entered. Type `help` to get list of available commands.");
+        }
     }
 
     return (
@@ -18,6 +39,11 @@ export function DefRoute() {
                     onChange={defFunc}
                     placeholder="$"
                 />
+                <button onClick={handleEnter}>Enter</button>
+            </div>
+
+            <div className="res-actual">
+                $user: {displayText}
             </div>
         </>
     )

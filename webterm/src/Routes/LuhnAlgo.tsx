@@ -31,9 +31,9 @@ export function LuhnAlgo() {
         //outcome
         let remainder: number = sum % 10;
         if (remainder === 0) {
-            setResultMessage('PASS');
+            setResultMessage("PASS");
         } else {
-            setResultMessage('FAIL');
+            setResultMessage("FAIL");
         }
     }
 
@@ -54,11 +54,11 @@ export function LuhnAlgo() {
                 </p>
 
                 <p className="res-actual">
-                    Input returned a total sum: {singleSum === -1 ? '-' : singleSum}
+                    Input returned a total sum: {singleSum === -1 ? "-" : singleSum}
                 </p>
 
                 <p className="res-actual">
-                    <span className={resultMessage === 'PASS' ? 'pass' : 'fail'}>{resultMessage}</span>
+                    <span className={resultMessage === "PASS" ? "pass" : "fail"}>{resultMessage}</span>
                 </p>
             </div>
         </>

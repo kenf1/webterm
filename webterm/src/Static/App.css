@@ -1,3 +1,15 @@
+:root {
+    --button-height: 74px;
+    --button-font-size: 28px;
+}
+
+@media (max-width: 600px) {
+    :root {
+        --button-height: 50px;
+        --button-font-size: 24px;
+    }
+}
+
 .input-box {
     display: flex;
     justify-content: left;
@@ -7,17 +19,10 @@
 }
 
 input {
-    width: 100%;
+    width: 90%;
     height: 50px;
     padding: 10px;
     font-size: 28px;
-}
-
-.res-desc {
-    display: flex;
-    justify-content: left;
-    font-size: 25px;
-    font-weight: bold;
 }
 
 .res-actual {
@@ -26,10 +31,9 @@ input {
     font-size: 21px;
 }
 
-.pass {
-    color: green;
-}
-
-.fail {
-    color: red;
+button {
+    width: 10%;
+    height: var(--button-height);
+    padding: 10px;
+    font-size: var(--button-font-size);
 }
