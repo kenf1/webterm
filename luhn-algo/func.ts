@@ -22,6 +22,12 @@ export function prepFunc(input: string): string {
     return str_res;
 }
 
+//extract all digits from string (everything else ignored)
+export function intRegex(input: string): string {
+    let digits = input.match(/\d/g) || [];
+    return digits ? digits.join("") : "";
+}
+
 /*
     sum digits of numbers >= 10
     run at most once -> will account for all use cases (highest 2x value will be 9 * 2 = 18)
@@ -29,7 +35,7 @@ export function prepFunc(input: string): string {
 */
 function sumGT10(input: number): number {
     if (input >= 10) {
-        let indivDigits: number[] = input.toString().split('').map(Number);
+        let indivDigits: number[] = input.toString().split("").map(Number);
         let digitsSum: number = indivDigits.reduce(
             (accumulator, currentValue) => accumulator + currentValue, 0
         );
@@ -54,7 +60,7 @@ export function inputX2(input: string): number[] {
     let actualList: number[] = []
 
     //convert string -> int
-    let intArray: number[] = input.split('').map(Number);
+    let intArray: number[] = input.split("").map(Number);
 
     //push check number (1st digit in orig input, last in rev input)
     actualList.push(intArray[0]);

@@ -1,0 +1,59 @@
+.ldebug {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+    color: #000;
+}
+
+.ldebug.dark-mode {
+    background-color: #000;
+    color: #fff;
+}
+
+.ldebug-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ldebug-result-font {
+    font-size: 28px;
+}
+
+.pass {
+    color: green;
+}
+
+.fail {
+    color: red;
+}
+
+.ldebug-debug-font {
+    font-size: 20px;
+}
+
+.ldebug-debug-button {
+    margin-top: 20px;
+}
+
+.mode-button {
+    margin-top: 20px;
+}
+
+.ldebug-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dark-mode-toggle {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 75px;
+    padding: 10px;
+    font-size: 16px;
+}

@@ -17,8 +17,8 @@ define pkg_run
 	node $(2).js
 endef
 
-run_luhn: ##Compile & run luhn-algo
-	$(call pkg_run,luhn-algo,main)
+# run_luhn: ##Compile & run luhn-algo
+# 	$(call pkg_run,luhn-algo,main)
 
 run_args: ##Run args
 	$(call pkg_run,args,parseArgs)
