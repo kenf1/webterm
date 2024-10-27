@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { prepFunc, sumNumArray, inputX2 } from "../../../luhn-algo/func.ts"
+import { prepFunc, sumNumArray, inputX2 } from "../../Logic/func.ts"
 
 export function LuhnAlgo() {
     let [userInput, setUserInput] = useState("");
