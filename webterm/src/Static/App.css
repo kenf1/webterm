@@ -1,13 +1,27 @@
 :root {
     --button-height: 74px;
     --button-font-size: 28px;
+    --input-height: 50px;
+    --input-font-size: 28px;
+    --input-padding: 10px;
+    --input-background-color: black;
+    --input-color: #39FF14;
+    --res-font-size: 21px;
 }
 
 @media (max-width: 600px) {
     :root {
         --button-height: 50px;
         --button-font-size: 24px;
+        --input-height: 40px;
+        --input-font-size: 24px;
+        --input-padding: 5px;
     }
+}
+
+body {
+    background-color: black;
+    color: var(--input-color);
 }
 
 .input-box {
@@ -16,19 +30,24 @@
     width: 100%;
     margin-top: 50px;
     margin-bottom: 25px;
+    background-color: black;
+    color: var(--input-color);
 }
 
-input {
+.input-box input {
     width: 90%;
-    height: 50px;
-    padding: 10px;
-    font-size: 28px;
+    height: var(--input-height);
+    padding: var(--input-padding);
+    font-size: var(--input-font-size);
+    border: none;
+    background-color: var(--input-background-color);
+    color: var(--input-color);
 }
 
 .res-actual {
     display: flex;
     justify-content: left;
-    font-size: 21px;
+    font-size: var(--res-font-size);
 }
 
 button {
@@ -36,4 +55,7 @@ button {
     height: var(--button-height);
     padding: 10px;
     font-size: var(--button-font-size);
+    border: none;
+    background-color: black;
+    color: var(--input-color);
 }

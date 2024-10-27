@@ -23,17 +23,20 @@ export function cmdHandler(inputCmd: string, arg: any | null): string {
     switch (inputCmd) {
         case "help":
             return `Available commands:
-- about: About this web app
-- github: My github: kenf1
-- echo: Print entered arg
-- luhn-check: Run Luhn checker on input
-- hacker: Attempt to access mainframe
-- sudo: Access as admin`;
+            - about: About this web app
+            - github: Opens new tab to my GitHub profile (github.com/kenf1)
+            - clear: Clear output
+            - echo: Print entered arg
+            - luhn-check: Run Luhn checker on input
+            - hacker: Attempt to access mainframe
+            - sudo: Access as admin`;
         case "about":
             return "A terminal clone built with TypeScript + React by kenf1"
         case "github":
             window.open("https://github.com/kenf1", "_blank");
             return "Opening new tab...";
+        case "clear":
+            return "";
         case "echo":
             return arg ? arg : "Missing argument for `echo` command";
         case "luhn-check":
@@ -53,14 +56,16 @@ export function cmdHandler(inputCmd: string, arg: any | null): string {
                 return "Input: " + tidyInput + " -> FAIL";
             }
         case "hacker":
-            return "Firewall bypassed. I've broken into the mainframe!!!"
+            // return "Firewall bypassed. I've broken into the mainframe!!!"
+            return "https://wallpapercave.com/wp/wp3162625.gif";
         case "sudo":
             return "Incorrect command. Did you mean `sudoo`?";
         case "sudoo":
             return "So close! Missing another `o`?";
         case "sudooo":
-            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
-            return "Opening new tab...";
+            // window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
+            // return "Opening new tab...";
+            return "http://media.giphy.com/media/5kq0GCjHA8Rwc/giphy.gif";
         default:
             return "Command not available";
     }
