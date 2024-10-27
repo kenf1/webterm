@@ -1,27 +1,28 @@
-import React, { useState } from "react"
-import { argIndex0, cmdHandler } from "../../Logic/parseArgs"
+import React, { useState } from "react";
+import { argIndex0, cmdHandler } from "../../Logic/parseArgs";
+import "../Static/Default.css";
 
 export function DefRoute() {
     let [userInput, setUserInput] = useState("");
     let [displayText, setDisplayText] = useState("");
 
-    //get user input & store as var
+    // get user input & store as var
     const defFunc = (event: React.ChangeEvent<HTMLInputElement>) => {
         let inputVal: string = event.target.value;
         setUserInput(inputVal);
-    }
+    };
 
-    //enter button
+    // enter button
     const handleEnter = () => {
         let acceptedCmd: string[] = [
             "about", "github",
-            "help", "echo", "luhn-check", "hacker",
-            "sudo", "sudoo", "sudooo"
+            "help", "clear", "echo", "luhn-check",
+            "hacker", "sudo", "sudoo", "sudooo"
         ];
 
-        //check if cmd index 0 is from list of accepted commands
+        // check if cmd index 0 is from list of accepted commands
         if (argIndex0(userInput, acceptedCmd) === true) {
-            //get cmd + args
+            // get cmd + args
             let fullCmd: string[] = userInput.split(" ");
 
             let cmd_action: string = cmdHandler(fullCmd[0], fullCmd[1]);
@@ -29,7 +30,7 @@ export function DefRoute() {
         } else {
             setDisplayText("Invalid command entered. Type `help` to get list of available commands.");
         }
-    }
+    };
 
     return (
         <>
@@ -44,8 +45,16 @@ export function DefRoute() {
             </div>
 
             <div className="res-actual">
-                $user: {displayText}
+                {["hacker", "sudooo"].includes(userInput.split(" ")[0]) ? (
+                    <div className="gif-container">
+                        $user: <img src={displayText} />
+                    </div>
+                ) : (
+                    <div style={{ whiteSpace: "pre-wrap" }}>
+                        $user: {displayText}
+                    </div>
+                )}
             </div>
         </>
-    )
+    );
 }

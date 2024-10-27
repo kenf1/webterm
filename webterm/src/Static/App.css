@@ -23,6 +23,7 @@ input {
     height: 50px;
     padding: 10px;
     font-size: 28px;
+    border: none;
 }
 
 .res-actual {
@@ -36,4 +37,5 @@ button {
     height: var(--button-height);
     padding: 10px;
     font-size: var(--button-font-size);
+    border: none;
 }
