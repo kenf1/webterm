@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { argIndex0, cmdHandler } from "../../Logic/parseArgs";
-import "../Static/Default.css";
+import "../Static/gif.css";
 
 export function DefRoute() {
     let [userInput, setUserInput] = useState("");
