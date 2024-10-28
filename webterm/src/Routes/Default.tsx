@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { argIndex0, cmdHandler } from "../../Logic/parseArgs";
 import "../Static/gif.css";
 
 export function DefRoute() {
     let [userInput, setUserInput] = useState("");
     let [displayText, setDisplayText] = useState("");
+    let [allCmd, setAllCmd] = useState<string[][]>([]);
 
     // get user input & store as var
     const defFunc = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -12,7 +13,15 @@ export function DefRoute() {
         setUserInput(inputVal);
     };
 
-    // enter button
+    // parse user input into commands and arguments
+    useEffect(() => {
+        if (userInput) {
+            let commands = userInput.split("&&").map(command => command.trim().split(" "));
+            setAllCmd(commands);
+        }
+    }, [userInput]);
+
+    // handle Enter button
     const handleEnter = () => {
         let acceptedCmd: string[] = [
             "about", "github",
@@ -22,11 +31,18 @@ export function DefRoute() {
 
         // check if cmd index 0 is from list of accepted commands
         if (argIndex0(userInput, acceptedCmd) === true) {
-            // get cmd + args
-            let fullCmd: string[] = userInput.split(" ");
+            while (allCmd.length > 0) {
+                let cmdAction: string = cmdHandler(allCmd[0][0], allCmd[0][1]);
+                setDisplayText(prevText => prevText + cmdAction + '\n'); // append to existing output
 
-            let cmd_action: string = cmdHandler(fullCmd[0], fullCmd[1]);
-            setDisplayText(cmd_action);
+                // clear all output
+                if (allCmd[0][0] === "clear") {
+                    setDisplayText("");
+                }
+
+                // pop from front
+                allCmd.splice(0, 1);
+            }
         } else {
             setDisplayText("Invalid command entered. Type `help` to get list of available commands.");
         }

@@ -28,15 +28,14 @@ export function cmdHandler(inputCmd: string, arg: any | null): string {
             - clear: Clear output
             - echo: Print entered arg
             - luhn-check: Run Luhn checker on input
-            - hacker: Attempt to access mainframe
-            - sudo: Access as admin`;
+            - hacker: Attempt to access mainframe (must be standalone command + run clear after)
+            - sudo: Access as admin (must be standalone command + run clear after)`;
         case "about":
+            window.open("https://github.com/kenf1/webterm", "_blank");
             return "A terminal clone built with TypeScript + React by kenf1"
         case "github":
             window.open("https://github.com/kenf1", "_blank");
-            return "Opening new tab...";
-        case "clear":
-            return "";
+            return "Opening new tab to GitHub";
         case "echo":
             return arg ? arg : "Missing argument for `echo` command";
         case "luhn-check":

@@ -8,7 +8,6 @@ export function LuhnDebug() {
     const [testResArr, setTestResArr] = useState<number[]>([]);
     const [singleSum, setSingleSum] = useState<number>(0);
     const [resultMessage, setResultMessage] = useState("");
-    const [isDebugMode, setIsDebugMode] = useState(false);
     const [isDarkMode, setIsDarkMode] = useState(false);
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,11 +41,6 @@ export function LuhnDebug() {
         }
     };
 
-    //show debug menu
-    const handleDebugToggle = () => {
-        setIsDebugMode(!isDebugMode);
-    };
-
     //dark mode on/off
     const handleModeToggle = () => {
         setIsDarkMode(!isDarkMode);
@@ -69,47 +63,35 @@ export function LuhnDebug() {
                         </p>
                     </div>
 
-                    <div className="ldebug-debug-button">
-                        <button onClick={handleDebugToggle}>
-                            {isDebugMode ? "Hide Debug Info" : "Show Debug Info"}
-                        </button>
+                    <div>
+                        <p className="ldebug-debug-font">
+                            <b>Processed String:</b>
+                            <br /><br />
+                            <center>
+                                {testStr}
+                            </center>
+                        </p>
                     </div>
 
-                    {isDebugMode && (
-                        <>
-                            <div>
-                                <div>
-                                    <p className="ldebug-debug-font">
-                                        <b>Processed String:</b>
-                                        <br /><br />
-                                        <center>
-                                            {testStr}
-                                        </center>
-                                    </p>
-                                </div>
+                    <div>
+                        <p className="ldebug-debug-font">
+                            <b>Processed Array:</b>
+                            <br /><br />
+                            <center>
+                                {testResArr.join(", ")}
+                            </center>
+                        </p>
+                    </div>
 
-                                <div>
-                                    <p className="ldebug-debug-font">
-                                        <b>Processed Array:</b>
-                                        <br /><br />
-                                        <center>
-                                            {testResArr.join(", ")}
-                                        </center>
-                                    </p>
-                                </div>
-
-                                <div>
-                                    <p className="ldebug-debug-font">
-                                        <b>Sum of Array:</b>
-                                        <br /><br />
-                                        <center>
-                                            {singleSum === -1 ? "-" : singleSum}
-                                        </center>
-                                    </p>
-                                </div>
-                            </div>
-                        </>
-                    )}
+                    <div>
+                        <p className="ldebug-debug-font">
+                            <b>Sum of Array:</b>
+                            <br /><br />
+                            <center>
+                                {singleSum === -1 ? "-" : singleSum}
+                            </center>
+                        </p>
+                    </div>
 
                     <div className="ldebug-mode-button">
                         <button onClick={handleModeToggle} className="dark-mode-toggle">

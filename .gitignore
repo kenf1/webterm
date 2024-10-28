@@ -47,6 +47,4 @@ EOL
 #Misc
 Dev/
 package-lock.json
-
-luhn-algo/*.js
-args/*.js
+webterm/Logic/*.js
