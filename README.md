@@ -2,6 +2,8 @@
 
 A terminal clone built with TypeScript + React. Only small number of commands will be implemented.
 
+![](./ref/entry.png)
+
 ### Features
 
 - Luhn algorithm checker
