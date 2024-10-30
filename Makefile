@@ -17,15 +17,16 @@ define pkg_run
 	node $(2).js
 endef
 
-# run_luhn: ##Compile & run luhn-algo
-# 	$(call pkg_run,luhn-algo,main)
+rundev: ##Run dev
+	$(call pkg_run,Dev,dev)
 
-run_args: ##Run args
-	$(call pkg_run,args,parseArgs)
+tidydev: ##Clear all unnecessary files from Dev folder
+	cd Dev && \
+	rm *.js
 
-ctargs: ##Compile args test
-	cd args && \
-	tsc --target es2023 *.ts
+tidyall: tidydev ## Clear all unnecessary files from all folders
+	cd webterm/Logic && \
+	rm *.js
 
 define npm_run
 	cd $(1) && \
@@ -40,12 +41,6 @@ run_react: ##Run react app (host)
 
 run_reactdc: ##Run react app (inside dev container)
 	$(call npm_run,webterm)
-
-tidy_subpkg: ##Tidy subpackages used in webterm
-	cd luhn-algo && \
-    rm *.js && \
-    cd ../args && \
-    rm *.js
 
 rm_dist: ##Clear dist (dev)
 	cd webterm && \

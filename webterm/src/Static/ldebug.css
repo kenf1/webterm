@@ -18,12 +18,18 @@
     align-items: center;
 }
 
+/* input[type="text"] {
+    height: 60px;
+    width: 500px;
+    font-size: 30px;
+} */
+
 .ldebug-result-font {
     font-size: 28px;
 }
 
 .pass {
-    color: green;
+    color: #39FF14;
 }
 
 .fail {
@@ -32,10 +38,6 @@
 
 .ldebug-debug-font {
     font-size: 20px;
-}
-
-.ldebug-debug-button {
-    margin-top: 20px;
 }
 
 .mode-button {

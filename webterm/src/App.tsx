@@ -3,7 +3,6 @@ import "./Static/App.css"
 
 import { DefRoute } from "./Routes/Default.tsx"
 import { NotFound } from "./Routes/Fallback.tsx"
-import { LuhnAlgo } from "./Routes/LuhnAlgo.tsx"
 import { LuhnDebug } from "./Routes/LuhnDebug.tsx"
 
 function App() {
@@ -11,7 +10,6 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<DefRoute />} />
-                <Route path="/lalgo" element={<LuhnAlgo />} />
                 <Route path="/ldebug" element={<LuhnDebug />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
