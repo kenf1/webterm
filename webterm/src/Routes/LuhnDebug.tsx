@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { intRegex, inputX2, sumNumArray } from "../../Logic/func.ts";
-import "../Static/ldebug.css";
+import "../../Static/ldebug.css";
 
 export function LuhnDebug() {
     const [testInput, setTestInput] = useState("");

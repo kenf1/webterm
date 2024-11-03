@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./Static/App.css"
+import "../Static/app.css";
 
 import { DefRoute } from "./Routes/Default.tsx"
 import { NotFound } from "./Routes/Fallback.tsx"

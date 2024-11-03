@@ -31,10 +31,10 @@ export function cmdHandler(inputCmd: string, arg: any | null): string {
             - hacker: Attempt to access mainframe (must be standalone command + run clear after)
             - sudo: Access as admin (must be standalone command + run clear after)`;
         case "about":
-            window.open("https://github.com/kenf1/webterm", "_blank");
+            // window.open("https://github.com/kenf1", "_blank");
             return "A terminal clone built with TypeScript + React by kenf1"
         case "github":
-            window.open("https://github.com/kenf1", "_blank");
+            window.open("https://github.com/kenf1/webterm", "_blank");
             return "Opening new tab to GitHub";
         case "echo":
             return arg ? arg : "Missing argument for `echo` command";
@@ -64,7 +64,7 @@ export function cmdHandler(inputCmd: string, arg: any | null): string {
         case "sudooo":
             // window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
             // return "Opening new tab...";
-            return "http://media.giphy.com/media/5kq0GCjHA8Rwc/giphy.gif";
+            return "https://media.giphy.com/media/5kq0GCjHA8Rwc/giphy.gif";
         default:
             return "Command not available";
     }

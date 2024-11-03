@@ -1,4 +1,5 @@
-## webterm
+## webterm 
+![Netlify Status](https://api.netlify.com/api/v1/badges/85660941-ac21-4440-ae5c-0fec8023d992/deploy-status)
 
 A terminal clone built with TypeScript + React. Only small number of commands will be implemented.
 
