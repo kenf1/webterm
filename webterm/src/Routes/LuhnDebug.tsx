@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { intRegex, inputX2, sumNumArray } from "../../Logic/func.ts";
+import { intRegex, inputX2, sumNumArray } from "../../Logic/algorithms.ts";
 import "../../Static/ldebug.css";
 
 export function LuhnDebug() {

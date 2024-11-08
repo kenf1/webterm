@@ -84,3 +84,53 @@ export function inputX2(input: string): number[] {
 
     return actualList;
 }
+
+//create A-z ascii ref
+function azRef(): string {
+    let tempArr: string[] = [];
+
+    //capital
+    for (let i = 65; i <= 90; i++) {
+        tempArr.push(String.fromCharCode(i));
+    }
+    let azCap: string = tempArr.join("");
+
+    //lower
+    let azLower: string = azCap.toLowerCase();
+
+    return azCap + azLower;
+}
+
+//ROT13 logic (encode + decode)
+export function rot13(ver: string, inputStr: string): string {
+    const refStr: string = azRef();
+    let storage: string[] = [];
+
+    for (let i = 0; i < inputStr.length; i++) {
+        //non-accepted input
+        if (!refStr.includes(inputStr[i])) {
+            console.log("inputStr contains non-accepted input chars");
+            return "";
+        }
+
+        //get orig index
+        let currentIndex: number = refStr.indexOf(inputStr[i]);
+
+        //create new index -> get new char
+        switch (ver) {
+            case "encode":
+                let encodeIndex: number = (currentIndex + 13) % refStr.length;
+                storage.push(refStr[encodeIndex]);
+                break;
+            case "decode":
+                let decodeIndex: number = (currentIndex - 13) % refStr.length;
+                storage.push(refStr[decodeIndex]);
+                break;
+            default:
+                console.log("Accepted options are: `encode` or `decode`");
+                return "";
+        }
+    }
+
+    return storage.join("");
+}

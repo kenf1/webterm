@@ -1,4 +1,4 @@
-import { inputX2, prepFunc, sumNumArray } from "./func";
+import { inputX2, prepFunc, sumNumArray, rot13 } from "./algorithms";
 
 //confirm index 0 is accepted command
 export function argIndex0(input: string, refArray: string[]): boolean {
@@ -28,6 +28,8 @@ export function cmdHandler(inputCmd: string, arg: any | null): string {
             - clear: Clear output
             - echo: Print entered arg
             - luhn-check: Run Luhn checker on input
+            - rot13-encode: Encode string using ROT13 algorithm
+            - rot13-decode: Decode string using ROT13 algorithm
             - hacker: Attempt to access mainframe (must be standalone command + run clear after)
             - sudo: Access as admin (must be standalone command + run clear after)`;
         case "about":
@@ -39,6 +41,10 @@ export function cmdHandler(inputCmd: string, arg: any | null): string {
         case "echo":
             return arg ? arg : "Missing argument for `echo` command";
         case "luhn-check":
+            if (arg === null) {
+                return "Missing argument for `luhn-check` command";
+            }
+
             //extract digits only
             let tidyInput: string = prepFunc(arg);
 
@@ -54,6 +60,10 @@ export function cmdHandler(inputCmd: string, arg: any | null): string {
             } else {
                 return "Input: " + tidyInput + " -> FAIL";
             }
+        case "rot13-encode":
+            return arg ? rot13("encode", arg) : "Missing argument for `rot13-encode`";
+        case "rot13-decode":
+            return arg ? rot13("decode", arg) : "Missing argument for `rot13-decode`";
         case "hacker":
             // return "Firewall bypassed. I've broken into the mainframe!!!"
             return "https://wallpapercave.com/wp/wp3162625.gif";

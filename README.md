@@ -12,6 +12,7 @@ A terminal clone built with TypeScript + React. Only small number of commands wi
 - easter egg with `sudo` and `hacker` commands
   - can't be chained, need to run `clear` before next command
 - command chain with `&&`
+- ROT13 encode + decode
 
 ### Limitations
 

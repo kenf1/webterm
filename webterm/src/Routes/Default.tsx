@@ -25,7 +25,8 @@ export function DefRoute() {
     const handleEnter = () => {
         let acceptedCmd: string[] = [
             "about", "github",
-            "help", "clear", "echo", "luhn-check",
+            "help", "clear", "echo",
+            "luhn-check", "rot13-encode", "rot13-decode",
             "hacker", "sudo", "sudoo", "sudooo"
         ];
 
@@ -35,9 +36,10 @@ export function DefRoute() {
                 let cmdAction: string = cmdHandler(allCmd[0][0], allCmd[0][1]);
                 setDisplayText(prevText => prevText + cmdAction + '\n'); // append to existing output
 
-                // clear all output
+                // clear all output + input box
                 if (allCmd[0][0] === "clear") {
-                    setDisplayText("");
+                    setDisplayText(""); //output
+                    setUserInput(""); //input box
                 }
 
                 // pop from front
