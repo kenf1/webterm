@@ -18,6 +18,12 @@ A terminal clone built with TypeScript + React. Only small number of commands wi
 
 - UI, design is not my forte ¯\\_(ツ)_/¯
 
+### To Run
+
+```{shell}
+cd webterm && npm install && npm run dev
+```
+
 ### Inspirations
 
 - Linux terminal

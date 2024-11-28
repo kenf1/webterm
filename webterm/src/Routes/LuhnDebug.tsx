@@ -10,22 +10,22 @@ export function LuhnDebug() {
     const [resultMessage, setResultMessage] = useState("");
     const [isDarkMode, setIsDarkMode] = useState(false);
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         //get user input
-        const value: string = event.target.value;
+        let value: string = event.target.value;
         setTestInput(value);
 
         //rm all spaces + non-numbers
-        const processedValue: string = intRegex(value);
+        let processedValue: string = intRegex(value);
         setTestStr(processedValue);
 
         //double every other digit (exclude last digit in rev-mode)
         //sum digits of doubled number if >= 10
-        const processedArray: number[] = inputX2(processedValue);
+        let processedArray: number[] = inputX2(processedValue);
         setTestResArr(processedArray);
 
         //sum all digits
-        const sum: number = sumNumArray(processedArray);
+        let sum: number = sumNumArray(processedArray);
         if (isNaN(sum)) {
             setSingleSum(-1);
         } else {
@@ -33,7 +33,7 @@ export function LuhnDebug() {
         }
 
         //calculate
-        const remainder: number = sum % 10;
+        let remainder: number = sum % 10;
         if (remainder === 0) {
             setResultMessage("PASS");
         } else {
@@ -42,7 +42,7 @@ export function LuhnDebug() {
     };
 
     //dark mode on/off
-    const handleModeToggle = () => {
+    let handleModeToggle = () => {
         setIsDarkMode(!isDarkMode);
     };
 

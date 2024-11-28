@@ -4,17 +4,10 @@ import { inputX2, prepFunc, sumNumArray, rot13 } from "./algorithms";
 export function argIndex0(input: string, refArray: string[]): boolean {
     let inputArr: string[] = input.split(" ");
 
-    if (inputArr.length > 0) {
-        if (refArray.includes(inputArr[0])) {
-            // console.log("SUCCESS");
-            return true;
-        } else {
-            // console.log(inputArr[0] + " is not an accepted argument");
-            return false;
-        }
+    if (inputArr.length > 0 && refArray.includes(inputArr[0])) {
+        return true
     } else {
-        // console.log("No argument provided");
-        return false;
+        return false
     }
 }
 
@@ -33,7 +26,6 @@ export function cmdHandler(inputCmd: string, arg: any | null): string {
             - hacker: Attempt to access mainframe (must be standalone command + run clear after)
             - sudo: Access as admin (must be standalone command + run clear after)`;
         case "about":
-            // window.open("https://github.com/kenf1", "_blank");
             return "A terminal clone built with TypeScript + React by kenf1"
         case "github":
             window.open("https://github.com/kenf1/webterm", "_blank");
@@ -65,15 +57,12 @@ export function cmdHandler(inputCmd: string, arg: any | null): string {
         case "rot13-decode":
             return arg ? rot13("decode", arg) : "Missing argument for `rot13-decode`";
         case "hacker":
-            // return "Firewall bypassed. I've broken into the mainframe!!!"
             return "https://wallpapercave.com/wp/wp3162625.gif";
         case "sudo":
             return "Incorrect command. Did you mean `sudoo`?";
         case "sudoo":
             return "So close! Missing another `o`?";
         case "sudooo":
-            // window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", "_blank");
-            // return "Opening new tab...";
             return "https://media.giphy.com/media/5kq0GCjHA8Rwc/giphy.gif";
         default:
             return "Command not available";

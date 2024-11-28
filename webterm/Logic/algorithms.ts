@@ -30,12 +30,16 @@ export function intRegex(input: string): string {
 
 /*
     sum digits of numbers >= 10
-    run at most once -> will account for all use cases (highest 2x value will be 9 * 2 = 18)
-    1 + 8 = 9, 9 < 10
+    max recursion: 1
+        highest 2x value: 9 x 2 = 18
+        1 + 8 = 9
 */
 function sumGT10(input: number): number {
     if (input >= 10) {
-        let indivDigits: number[] = input.toString().split("").map(Number);
+        let indivDigits: number[] = input
+            .toString()
+            .split("")
+            .map(Number);
         let digitsSum: number = indivDigits.reduce(
             (accumulator, currentValue) => accumulator + currentValue, 0
         );
@@ -60,24 +64,31 @@ export function inputX2(input: string): number[] {
     let actualList: number[] = []
 
     //convert string -> int
-    let intArray: number[] = input.split("").map(Number);
+    let intArray: number[] = input
+        .split("")
+        .map(Number);
 
     //push check number (1st digit in orig input, last in rev input)
     actualList.push(intArray[0]);
 
-    //all other digits in 
+    //remaining digits
     for (let i: number = 1; i < intArray.length; i++) {
-        if (i % 2 == 1) { //items to double
-            let tempInt: number = intArray[i] * 2;
+        if (i % 2 == 1) {
+            //items to double
+            let tempInt: number = intArray[i] * 2; 
 
-            if (tempInt >= 10) { //items to sum digits
+            if (tempInt >= 10) {
+                //items to sum digits
                 actualList.push(sumGT10(tempInt));
-            } else { //everything else
+            } else {
+                //everything else
                 actualList.push(tempInt);
             }
-        } else if (i % 2 == 0) { //items to stay as is
+        } else if (i % 2 == 0) {
+            //items to stay as is
             actualList.push(intArray[i]);
-        } else { //catch any exceptions
+        } else {
+            //catch any exceptions
             console.log("Unable to classify " + intArray[i] + " at index " + i);
         }
     }

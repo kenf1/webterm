@@ -3,9 +3,9 @@ import { argIndex0, cmdHandler } from "../../Logic/parseArgs";
 import "../../Static/gif.css";
 
 export function DefRoute() {
-    let [userInput, setUserInput] = useState("");
-    let [displayText, setDisplayText] = useState("");
-    let [allCmd, setAllCmd] = useState<string[][]>([]);
+    const [userInput, setUserInput] = useState("");
+    const [displayText, setDisplayText] = useState("");
+    const [allCmd, setAllCmd] = useState<string[][]>([]);
 
     // get user input & store as var
     const defFunc = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,7 +16,9 @@ export function DefRoute() {
     // parse user input into commands and arguments
     useEffect(() => {
         if (userInput) {
-            let commands = userInput.split("&&").map(command => command.trim().split(" "));
+            let commands = userInput
+                .split("&&")
+                .map((command: string) => command.trim().split(" "));
             setAllCmd(commands);
         }
     }, [userInput]);
@@ -34,7 +36,9 @@ export function DefRoute() {
         if (argIndex0(userInput, acceptedCmd) === true) {
             while (allCmd.length > 0) {
                 let cmdAction: string = cmdHandler(allCmd[0][0], allCmd[0][1]);
-                setDisplayText(prevText => prevText + cmdAction + '\n'); // append to existing output
+
+                // append to existing output
+                setDisplayText((prevText: string) => prevText + cmdAction + '\n');
 
                 // clear all output + input box
                 if (allCmd[0][0] === "clear") {
